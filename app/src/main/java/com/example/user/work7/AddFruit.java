@@ -55,6 +55,7 @@ public class AddFruit extends LinearLayout implements View.OnClickListener {
             if(isModifyMode){
                 Toast.makeText(getContext(), "수정되었습니다.", Toast.LENGTH_SHORT).show();
                 target.name = et.getText().toString();
+                target.price = et2.getText().toString().isEmpty()?0:Long.parseLong(et2.getText().toString());
                 target.img = fruitNum[imageno];
                 b_add.setText("Add");
                 MainActivity.gridAdapter.notifyDataSetChanged();
@@ -72,6 +73,7 @@ public class AddFruit extends LinearLayout implements View.OnClickListener {
             this.target = target;
             b_add.setText("M");
             et.setText(target.name);
+            et2.setText(String.valueOf(target.price));
             isModifyMode = true;
         }
     }
